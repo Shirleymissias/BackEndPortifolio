@@ -1,6 +1,6 @@
 import express, { request, response } from 'express'
 import cors from 'cors'
-import {connection} from './database/mysql-connect'
+import {connection} from './database/mysql-connect.js'
 
 const port = 3000;
 
@@ -23,7 +23,7 @@ app.use(cors());
 // }
 
 routs.get("/", async (request, response) => {
-    const [rows] = (await connection).query("select * from users LIMIT 1");
+    const [rows] = await connection.query("select * from users LIMIT 1");
     return response.status(200).json(rows);
 })
 
