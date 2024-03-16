@@ -31,7 +31,25 @@ routs.get("/", async (request, response) => {
 //     response.json(homeInfo)
 // })
 
+app.get('programming_languages', async (request, response) => {
+    const data = [
+        {id: 1, language: 'Linguagem 1', percentage: 30}
+    ]
+
+    //const data = (await connection).execute('select * from programming_languages')
+
+    return response.json()
+})
+
+
+app.post('programming_languages', async(request, response) => {
+    const data = request.body
+    const query = await connection.execute('', [])
+
+    return response.json()
+})
 
 app.listen(port, () => {
     console.log('Servidor funcionando')
 });
+
